@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خدماتنا | الدرع الذهبي للمقاولات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9922A;
+      --gold-light: #F0B84A;
+      --gold-dark: #9A6E1A;
+      --navy: #0A1628;
+      --navy-mid: #112240;
+      --navy-light: #1E3A5F;
+      --white: #F8F4EE;
+      --gray: #8A9BB0;
+      --text: #E8DCC8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10,22,40,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav-logo {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; right: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--navy) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 130px 8% 70px;
+      background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,146,42,0.08), transparent);
+      border-radius: 50%;
+    }
+
+    .page-hero-content { position: relative; z-index: 1; }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 1.2rem;
+    }
+
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+
+    .page-hero h1 {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .page-hero h1 span { color: var(--gold-light); }
+
+    .page-hero p {
+      color: var(--gray);
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 8%; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(201,146,42,0.12);
+      border: 1px solid rgba(201,146,42,0.3);
+      color: var(--gold);
+      padding: 5px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .section-title span { color: var(--gold-light); }
+
+    .section-desc {
+      color: var(--gray);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* SERVICE DETAILED CARDS */
+    .services-detailed {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .service-detail-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,146,42,0.15);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .service-detail-card:hover {
+      border-color: rgba(201,146,42,0.35);
+    }
+
+    .service-detail-header {
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      border-bottom: 1px solid rgba(201,146,42,0.1);
+    }
+
+    .service-detail-icon {
+      font-size: 3rem;
+      width: 70px;
+      height: 70px;
+      background: rgba(201,146,42,0.12);
+      border: 1px solid rgba(201,146,42,0.3);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .service-detail-header h2 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .service-detail-header p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .service-detail-body {
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+    .service-detail-desc p {
+      color: var(--text);
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-sub-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .service-sub-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .service-sub-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.7rem;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .service-detail-aside {
+      background: rgba(201,146,42,0.05);
+      border: 1px solid rgba(201,146,42,0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .service-detail-aside h4 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .aside-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .aside-tag {
+      background: rgba(201,146,42,0.1);
+      border: 1px solid rgba(201,146,42,0.2);
+      color: var(--text);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+      background: var(--navy-mid);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 1rem 1.3rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,146,42,0.15);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s;
+    }
+
+    .contact-method:hover {
+      background: rgba(201,146,42,0.08);
+      border-color: rgba(201,146,42,0.3);
+      transform: translateX(-4px);
+    }
+
+    .contact-method-icon {
+      font-size: 1.5rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: rgba(201,146,42,0.1);
+      flex-shrink: 0;
+    }
+
+    .contact-method-info strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      margin-bottom: 2px;
+    }
+
+    .contact-method-info span {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(201,146,42,0.15);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .contact-form h3 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(201,146,42,0.05);
+    }
+
+    .form-group select option {
+      background: var(--navy-mid);
+      color: var(--text);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--navy);
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201,146,42,0.4);
+    }
+
+    .form-success {
+      display: none;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      color: #25D366;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060F1E;
+      padding: 50px 8% 25px;
+      border-top: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { color: var(--gray); font-size: 0.82rem; }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    /* FLOATING BUTTONS */
+    .float-buttons {
+      position: fixed;
+      bottom: 28px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .float-btn::before {
+      content: attr(data-label);
+      position: absolute;
+      right: 64px;
+      background: rgba(10,22,40,0.95);
+      border: 1px solid rgba(201,146,42,0.3);
+      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 5px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: all 0.2s;
+    }
+
+    .float-btn:hover::before { opacity: 1; transform: translateX(0); }
+    .float-btn:hover { transform: scale(1.1); }
+
+    .float-whatsapp { background: linear-gradient(135deg, #128C7E, #25D366); color: white; }
+    .float-call { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--navy); }
+
+    .float-whatsapp::after, .float-call::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      animation: pulse 2.5s ease-out infinite;
+    }
+
+    .float-whatsapp::after { border: 2px solid #25D366; }
+    .float-call::after { border: 2px solid var(--gold); }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .service-detail-body { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span>🛡️</span>
+      <span>الدرع الذهبي للمقاولات</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="index.html#about">من نحن</a></li>
+      <li><a href="services.html">خدماتنا</a></li>
+      <li><a href="index.html#areas">مناطق العمل</a></li>
+      <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">الرئيسية</a>
+        <span>◄</span>
+        <span>خدماتنا</span>
+      </div>
+      <h1>خدماتنا <span>المتكاملة</span></h1>
+      <p>نقدم مجموعة شاملة من الحلول المتخصصة في العزل المائي والحراري وأعمال المقاولات والتشطيبات في الرياض</p>
+    </div>
+  </div>
+
+  <!-- SERVICES DETAILED -->
+  <section id="services">
+    <div class="section-header fade-up">
+      <div class="section-tag">خدماتنا</div>
+      <h2 class="section-title">جميع <span>خدماتنا</span> تفصيلاً</h2>
+    </div>
+
+    <div class="services-detailed">
+
+      <!-- 1. العزل المائي -->
+      <div class="service-detail-card fade-up" id="waterproofing">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">💧</div>
+          <div>
+            <h2>العزل المائي</h2>
+            <p>حلول شاملة لمنع التسربات وحماية المنشآت من الرطوبة والمياه</p>
+          </div>
+        </div>
+        <div class="service-detail-body">
+          <div class="service-detail-desc">
+            <p>
+              نقدم خدمات العزل المائي الاحترافية باستخدام أحدث المواد والتقنيات المعتمدة عالمياً. نعالج مشاكل التسرب من مصدرها ونضمن حماية دائمة لمنشأتك من الرطوبة والمياه.
+            </p>
+            <ul class="service-sub-list">
+              <li>عزل الأسطح الخرسانية المسطحة والمائلة</li>
+              <li>عزل القواعد والبدرومات من الداخل والخارج</li>
+              <li>عزل الخزانات الأرضية والعلوية</li>
+              <li>عزل المسابح وأحواض المياه</li>
+              <li>عزل الحمامات والمطابخ ومناطق الرطوبة</li>
+              <li>معالجة التشققات والفواصل والعيوب الإنشائية</li>
+              <li>عزل الأساسات والجدران الخارجية</li>
+            </ul>
+          </div>
+          <div class="service-detail-aside">
+            <h4>⚡ مناطق التطبيق</h4>
+            <div class="aside-tags">
+              <span class="aside-tag">الأسطح</span>
+              <span class="aside-tag">البدرومات</span>
+              <span class="aside-tag">الخزانات</span>
+              <span class="aside-tag">المسابح</span>
+              <span class="aside-tag">الحمامات</span>
+              <span class="aside-tag">المطابخ</span>
+              <span class="aside-tag">الأساسات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. العزل الحراري -->
+      <div class="service-detail-card fade-up" id="thermal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🌡️</div>
+          <div>
+            <h2>العزل الحراري</h2>
+            <p>تقليل استهلاك الطاقة وتحسين كفاءة التكييف والتدفئة</p>
+          </div>
+        </div>
+        <div class="service-detail-body">
+          <div class="service-detail-desc">
+            <p>
+              العزل الحراري الاحترافي يوفر ما يصل إلى 40% من استهلاك الطاقة، ويحسن بيئة المبنى الداخلية. نستخدم أفضل مواد العزل الحراري المعتمدة لضمان أعلى كفاءة.
+            </p>
+            <ul class="service-sub-list">
+              <li>عزل الأسطح حرارياً لمنع امتصاص الحرارة</li>
+              <li>عزل الجدران الخارجية والداخلية</li>
+              <li>عزل الأسقف والبلاطات الخرسانية</li>
+              <li>عزل المستودعات والمباني الصناعية</li>
+              <li>عزل غرف التبريد والتخزين البارد</li>
+              <li>تركيب ألواح العزل الحراري المختلفة</li>
+            </ul>
+          </div>
+          <div class="service-detail-aside">
+            <h4>✅ المزايا</h4>
+            <div class="aside-tags">
+              <span class="aside-tag">توفير الطاقة</span>
+              <span class="aside-tag">تقليل الفواتير</span>
+              <span class="aside-tag">راحة حرارية</span>
+              <span class="aside-tag">حماية المبنى</span>
+              <span class="aside-tag">ضمان طويل</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. فوم البولي يوريثان -->
+      <div class="service-detail-card fade-up" id="foam">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🫧</div>
+          <div>
+            <h2>فوم البولي يوريثان</h2>
+            <p>عزل حراري ومائي متكامل بتقنية رش الفوم المتقدمة</p>
+          </div>
+        </div>
+        <div class="service-detail-body">
+          <div class="service-detail-desc">
+            <p>
+              فوم البولي يوريثان من أكثر مواد العزل كفاءة وفاعلية، يوفر عزلاً حرارياً ومائياً متكاملاً في طبقة واحدة. مثالي للأسطح والجدران والمستودعات والمنشآت الصناعية.
+            </p>
+            <ul class="service-sub-list">
+              <li>رش فوم البولي يوريثان على الأسطح والجدران</li>
+              <li>عزل المستودعات والمخازن والمصانع</li>
+              <li>عزل غرف التبريد والثلاجات الصناعية</li>
+              <li>عزل الخزانات المعدنية وصهاريج المياه</li>
+              <li>حقن الفوم لملء الفراغات والتجاويف</li>
+              <li>طبقات بكثافات مختلفة حسب الاحتياج</li>
+            </ul>
+          </div>
+          <div class="service-detail-aside">
+            <h4>🌟 مميزاته</h4>
+            <div class="aside-tags">
+              <span class="aside-tag">خفيف الوزن</span>
+              <span class="aside-tag">ملاصق للسطح</span>
+              <span class="aside-tag">عازل مزدوج</span>
+              <span class="aside-tag">داوم طويل</span>
+              <span class="aside-tag">سريع التطبيق</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. البولي يوريا -->
+      <div class="service-detail-card fade-up" id="polyurea">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🔶</div>
+          <div>
+            <h2>البولي يوريا</h2>
+            <p>حماية فائقة ضد التآكل والمياه وأقسى الظروف البيئية</p>
+          </div>
+        </div>
+        <div class="service-detail-body">
+          <div class="service-detail-desc">
+            <p>
+              البولي يوريا طلاء مرن عالي الأداء يوفر حماية استثنائية من التآكل، الصدمات، والمياه. يُطبَّق برش حار سريع التصلب ليشكّل غشاءً متصلاً بلا فواصل.
+            </p>
+            <ul class="service-sub-list">
+              <li>طلاء الخزانات والصهاريج وأحواض المياه</li>
+              <li>حماية الأسطح الخرسانية من التآكل</li>
+              <li>عزل الأسطح والأرضيات الصناعية</li>
+              <li>حماية الهياكل المعدنية من الصدأ</li>
+              <li>عزل المسابح وأحواض المعالجة</li>
+              <li>تطبيق على المواسير والأنابيب</li>
+            </ul>
+          </div>
+          <div class="service-detail-aside">
+            <h4>💪 قوة التحمل</h4>
+            <div class="aside-tags">
+              <span class="aside-tag">مقاوم للصدمات</span>
+              <span class="aside-tag">مرن 100%</span>
+              <span class="aside-tag">ضد التآكل</span>
+              <span class="aside-tag">طلاء سلس</span>
+              <span class="aside-tag">ضد الكيماويات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. الخزانات والمسابح -->
+      <div class="service-detail-card fade-up" id="tanks">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🏊</div>
+          <div>
+            <h2>خزانات ومسابح وأحواض</h2>
+            <p>عزل وتشطيب احترافي لجميع أنواع الخزانات والمسابح</p>
+          </div>
+        </div>
+        <div class="service-detail-body">
+          <div class="service-detail-desc">
+            <p>
+              نتخصص في معالجة وعزل الخزانات والمسابح بمواد مقاومة للمياه والمواد الكيميائية ومعتمدة للتلامس مع مياه الشرب. نضمن سلامة مياهك وطول عمر المنشأة.
+            </p>
+            <ul class="service-sub-list">
+              <li>عزل وتشطيب خزانات المياه العلوية والأرضية</li>
+              <li>تبطين المسابح بمواد مقاومة للكلور والكيماويات</li>
+              <li>إصلاح وترميم الخزانات المتشققة</li>
+              <li>تركيب طبقات الحماية الداخلية</li>
+              <li>معالجة أحواض محطات معالجة المياه</li>
+              <li>عزل أحواض حمامات الجاكوزي والسبا</li>
+            </ul>
+          </div>
+          <div class="service-detail-aside">
+            <h4>🏅 الجودة</h4>
+            <div class="aside-tags">
+              <span class="aside-tag">آمن للشرب</span>
+              <span class="aside-tag">ضد الكلور</span>
+              <span class="aside-tag">طويل الأمد</span>
+              <span class="aside-tag">لا تسرب</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. تشطيبات وترميمات -->
+      <div class="service-detail-card fade-up" id="finishing">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🔨</div>
+          <div>
+            <h2>تشطيبات وترميمات مباني</h2>
+            <p>إعادة إحياء المباني وتجديدها بأعلى معايير التشطيب</p>
+          </div>
+        </div>
+        <div class="service-detail-body">
+          <div class="service-detail-desc">
+            <p>
+              نقدم خدمات شاملة لترميم وتجديد المباني السكنية والتجارية، من تشطيب الحمامات والمطابخ وحتى ترميم الواجهات والأسطح. فريقنا يمتلك الخبرة والمهارة لتجديد منشأتك.
+            </p>
+            <ul class="service-sub-list">
+              <li>تشطيب وتجديد الحمامات كاملاً</li>
+              <li>تجديد المطابخ وتشطيب الجدران</li>
+              <li>ترميم الأسطح والواجهات الخارجية</li>
+              <li>إصلاح التشققات والشقوق في الجدران والأسقف</li>
+              <li>تشطيب البدرومات والطوابق السفلية</li>
+              <li>معالجة البقع والرطوبة في الجدران</li>
+              <li>تركيب وتجديد الأرضيات</li>
+            </ul>
+          </div>
+          <div class="service-detail-aside">
+            <h4>🏠 المجالات</h4>
+            <div class="aside-tags">
+              <span class="aside-tag">حمامات</span>
+              <span class="aside-tag">مطابخ</span>
+              <span class="aside-tag">أسطح</span>
+              <span class="aside-tag">بدرومات</span>
+              <span class="aside-tag">واجهات</span>
+              <span class="aside-tag">أرضيات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header fade-up">
+      <div class="section-tag">تواصل معنا</div>
+      <h2 class="section-title">احصل على <span>معاينة مجانية</span></h2>
+      <p class="section-desc">تواصل معنا الآن وسيصلك فريقنا المتخصص لمعاينة موقعك وتقديم أفضل الحلول</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <h3>طرق التواصل</h3>
+        <p>نحن متاحون دائماً للرد على استفساراتك وتقديم الحلول المناسبة لمشاكل العزل والترميم</p>
+        <div class="contact-methods">
+          <a href="tel:0559133356" class="contact-method">
+            <div class="contact-method-icon">📞</div>
+            <div class="contact-method-info">
+              <strong>اتصل بنا</strong>
+              <span>0559133356</span>
+            </div>
+          </a>
+          <a href="https://wa.me/966559133356" target="_blank" class="contact-method">
+            <div class="contact-method-icon">💬</div>
+            <div class="contact-method-info">
+              <strong>واتساب</strong>
+              <span>تحدث معنا مباشرة</span>
+            </div>
+          </a>
+          <a href="#" class="contact-method">
+            <div class="contact-method-icon">📍</div>
+            <div class="contact-method-info">
+              <strong>موقعنا</strong>
+              <span>الرياض، المملكة العربية السعودية</span>
+            </div>
+          </a>
+          <a href="#" class="contact-method">
+            <div class="contact-method-icon">⏰</div>
+            <div class="contact-method-info">
+              <strong>ساعات العمل</strong>
+              <span>السبت – الخميس: 7 ص – 10 م</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form fade-up">
+        <h3>📝 أرسل استفسارك</h3>
+        <div class="form-group">
+          <label>الاسم الكريم</label>
+          <input type="text" placeholder="اكتب اسمك هنا" id="fname" />
+        </div>
+        <div class="form-group">
+          <label>رقم الجوال</label>
+          <input type="tel" placeholder="05xxxxxxxx" id="fphone" />
+        </div>
+        <div class="form-group">
+          <label>نوع الخدمة المطلوبة</label>
+          <select id="fservice">
+            <option value="">اختر الخدمة</option>
+            <option>العزل المائي</option>
+            <option>العزل الحراري</option>
+            <option>فوم البولي يوريثان</option>
+            <option>البولي يوريا</option>
+            <option>خزانات ومسابح</option>
+            <option>ترميمات وتشطيبات</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>تفاصيل الطلب</label>
+          <textarea placeholder="اكتب تفاصيل مشكلتك أو طلبك..." id="fmsg"></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit()">إرسال الطلب ◄</button>
+        <div class="form-success" id="successMsg">✅ تم إرسال طلبك! سنتواصل معك قريباً</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 الدرع الذهبي للمقاولات العامة — جميع الحقوق محفوظة</p>
+      <p>
+        <a href="index.html">الرئيسية</a> &nbsp;|&nbsp;
+        <a href="services.html">الخدمات</a> &nbsp;|&nbsp;
+        <a href="privacy.html">سياسة الخصوصية</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="float-buttons">
+    <a href="https://wa.me/966559133356" target="_blank" class="float-btn float-whatsapp" data-label="تواصل واتساب">💬</a>
+    <a href="tel:0559133356" class="float-btn float-call" data-label="اتصل الآن">📞</a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    function handleSubmit() {
+      const name = document.getElementById('fname').value;
+      const phone = document.getElementById('fphone').value;
+      if (!name || !phone) {
+        alert('الرجاء إدخال الاسم ورقم الجوال');
+        return;
+      }
+      document.getElementById('successMsg').style.display = 'block';
+      const service = document.getElementById('fservice').value;
+      const msg = document.getElementById('fmsg').value;
+      const waText = encodeURIComponent(`السلام عليكم، أنا ${name}، رقمي ${phone}. أريد الاستفسار عن: ${service}. ${msg}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/966559133356?text=${waText}`, '_blank');
+      }, 800);
+    }
+  </script>
+</body>
+</html>

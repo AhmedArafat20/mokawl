@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سياسة الخصوصية | الدرع الذهبي للمقاولات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9922A;
+      --gold-light: #F0B84A;
+      --gold-dark: #9A6E1A;
+      --navy: #0A1628;
+      --navy-mid: #112240;
+      --navy-light: #1E3A5F;
+      --white: #F8F4EE;
+      --gray: #8A9BB0;
+      --text: #E8DCC8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10,22,40,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav-logo {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--navy) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 130px 8% 60px;
+      background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy) 100%);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 1.2rem;
+    }
+
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+
+    .page-hero h1 {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .page-hero h1 span { color: var(--gold-light); }
+
+    .page-hero .meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    /* PRIVACY CONTENT */
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+      padding: 60px 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* TOC */
+    .toc {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+    }
+
+    .toc-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .toc-card h4 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .toc-list a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+    }
+
+    .toc-list a::before {
+      content: '◈';
+      color: var(--gold-dark);
+      font-size: 0.7rem;
+    }
+
+    .toc-list a:hover { color: var(--gold-light); }
+
+    /* PRIVACY SECTIONS */
+    .privacy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .privacy-section {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,146,42,0.12);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+
+    .privacy-section:hover {
+      border-color: rgba(201,146,42,0.25);
+    }
+
+    .privacy-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,146,42,0.1);
+    }
+
+    .privacy-section-icon {
+      font-size: 1.5rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(201,146,42,0.1);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .privacy-section-header h2 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .privacy-section p {
+      color: var(--gray);
+      font-size: 0.92rem;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-section p:last-child { margin-bottom: 0; }
+
+    .privacy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+
+    .privacy-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .privacy-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.7rem;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: rgba(201,146,42,0.06);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .highlight-box strong { color: var(--gold-light); }
+
+    /* FOOTER */
+    footer {
+      background: #060F1E;
+      padding: 40px 8% 25px;
+      border-top: 1px solid rgba(201,146,42,0.2);
+      margin-top: 2rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { color: var(--gray); font-size: 0.82rem; }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    /* FLOATING BUTTONS */
+    .float-buttons {
+      position: fixed;
+      bottom: 28px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .float-btn::before {
+      content: attr(data-label);
+      position: absolute;
+      right: 64px;
+      background: rgba(10,22,40,0.95);
+      border: 1px solid rgba(201,146,42,0.3);
+      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 5px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: all 0.2s;
+    }
+
+    .float-btn:hover::before { opacity: 1; transform: translateX(0); }
+    .float-btn:hover { transform: scale(1.1); }
+
+    .float-whatsapp { background: linear-gradient(135deg, #128C7E, #25D366); color: white; }
+    .float-call { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--navy); }
+
+    .float-whatsapp::after, .float-call::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      animation: pulse 2.5s ease-out infinite;
+    }
+
+    .float-whatsapp::after { border: 2px solid #25D366; }
+    .float-call::after { border: 2px solid var(--gold); }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .privacy-layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .privacy-layout { padding: 40px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span>🛡️</span>
+      <span>الدرع الذهبي للمقاولات</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="index.html#about">من نحن</a></li>
+      <li><a href="services.html">خدماتنا</a></li>
+      <li><a href="services.html#contact" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a>
+      <span>◄</span>
+      <span>سياسة الخصوصية</span>
+    </div>
+    <h1>سياسة <span>الخصوصية</span></h1>
+    <div class="meta">
+      <div class="meta-item">📅 <span>آخر تحديث: يناير 2025</span></div>
+      <div class="meta-item">🛡️ <span>الدرع الذهبي للمقاولات العامة</span></div>
+      <div class="meta-item">📍 <span>الرياض، المملكة العربية السعودية</span></div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="privacy-layout">
+
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-card">
+        <h4>📋 المحتويات</h4>
+        <ul class="toc-list">
+          <li><a href="#intro">مقدمة</a></li>
+          <li><a href="#collect">البيانات التي نجمعها</a></li>
+          <li><a href="#use">كيف نستخدم بياناتك</a></li>
+          <li><a href="#share">مشاركة البيانات</a></li>
+          <li><a href="#protect">حماية بياناتك</a></li>
+          <li><a href="#cookies">ملفات الارتباط</a></li>
+          <li><a href="#rights">حقوقك</a></li>
+          <li><a href="#contact">التواصل معنا</a></li>
+          <li><a href="#changes">التعديلات</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTIONS -->
+    <div class="privacy-content">
+
+      <div class="privacy-section" id="intro">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">📜</div>
+          <h2>مقدمة</h2>
+        </div>
+        <p>
+          تلتزم شركة الدرع الذهبي للمقاولات العامة ("الشركة"، "نحن") بحماية خصوصيتك والحفاظ على سرية بياناتك الشخصية. تصف سياسة الخصوصية هذه الممارسات المتعلقة بجمع البيانات وتخزينها واستخدامها والإفصاح عنها.
+        </p>
+        <p>
+          باستخدامك لموقعنا الإلكتروني أو التواصل معنا بأي وسيلة، فإنك توافق على الشروط الواردة في هذه السياسة. إذا كنت لا توافق على هذه الشروط، يُرجى عدم استخدام خدماتنا.
+        </p>
+        <div class="highlight-box">
+          <strong>نلتزم بأحكام نظام حماية البيانات الشخصية</strong> الصادر في المملكة العربية السعودية وجميع الأنظمة واللوائح ذات الصلة.
+        </div>
+      </div>
+
+      <div class="privacy-section" id="collect">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">📊</div>
+          <h2>البيانات التي نجمعها</h2>
+        </div>
+        <p>قد نجمع الأنواع التالية من البيانات عند تواصلك معنا:</p>
+        <ul class="privacy-list">
+          <li><strong>بيانات التعريف:</strong> الاسم الكامل</li>
+          <li><strong>بيانات الاتصال:</strong> رقم الجوال أو الهاتف</li>
+          <li><strong>بيانات الموقع:</strong> المدينة أو الحي (لتحديد نطاق الخدمة)</li>
+          <li><strong>تفاصيل الطلب:</strong> نوع الخدمة المطلوبة والمشكلة المُبلَّغ عنها</li>
+          <li><strong>بيانات التواصل:</strong> سجلات المراسلات عبر الهاتف أو واتساب</li>
+          <li><strong>بيانات تقنية:</strong> عنوان IP ونوع المتصفح عند الزيارة (بشكل مجهول)</li>
+        </ul>
+        <p>نجمع هذه البيانات عن طريق: نماذج التواصل، مكالمات الهاتف، رسائل الواتساب، أو عند طلب معاينة مجانية.</p>
+      </div>
+
+      <div class="privacy-section" id="use">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">⚙️</div>
+          <h2>كيف نستخدم بياناتك</h2>
+        </div>
+        <p>نستخدم البيانات التي نجمعها للأغراض التالية فقط:</p>
+        <ul class="privacy-list">
+          <li>الرد على استفساراتك وتقديم عروض الأسعار</li>
+          <li>جدولة مواعيد المعاينة والتنفيذ</li>
+          <li>التواصل معك بشأن سير العمل وتحديثات المشروع</li>
+          <li>إرسال الفواتير وتأكيد الطلبات</li>
+          <li>تحسين جودة خدماتنا بناءً على ملاحظاتك</li>
+          <li>الإعلام بالعروض والخدمات الجديدة (بموافقتك فقط)</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>لا نستخدم بياناتك</strong> لأي غرض تجاري آخر، ولا نقوم بتحليلها أو بيعها لأطراف ثالثة.
+        </div>
+      </div>
+
+      <div class="privacy-section" id="share">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">🤝</div>
+          <h2>مشاركة البيانات مع الأطراف الثالثة</h2>
+        </div>
+        <p>
+          نحن نُقدّر خصوصيتك ونلتزم بعدم بيع بياناتك الشخصية أو تأجيرها أو مشاركتها مع أطراف ثالثة لأغراض تسويقية.
+        </p>
+        <p>قد نشارك بياناتك في الحالات التالية المحدودة:</p>
+        <ul class="privacy-list">
+          <li><strong>المقاولون من الباطن:</strong> في حال الحاجة لمساعدة متخصصين، وبما يلزم فقط لإتمام الخدمة</li>
+          <li><strong>المتطلبات القانونية:</strong> إذا طُلب منا ذلك بموجب أمر قضائي أو لوائح حكومية</li>
+          <li><strong>حماية الحقوق:</strong> لحماية حقوق الشركة أو أمان العملاء عند الضرورة</li>
+        </ul>
+        <p>في جميع الحالات، نطلب من أي طرف ثالث الالتزام بمعايير الخصوصية ذاتها.</p>
+      </div>
+
+      <div class="privacy-section" id="protect">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">🔒</div>
+          <h2>حماية بياناتك</h2>
+        </div>
+        <p>
+          نتخذ تدابير تقنية وتنظيمية مناسبة لحماية بياناتك الشخصية من الوصول غير المصرح به أو الإفصاح أو التغيير أو الإتلاف.
+        </p>
+        <ul class="privacy-list">
+          <li>تشفير البيانات المنقولة عبر الإنترنت (بروتوكول HTTPS)</li>
+          <li>تقييد الوصول إلى البيانات على موظفين مختارين يحتاجونها لأداء عملهم</li>
+          <li>عدم الاحتفاظ بالبيانات لفترة أطول من اللازم</li>
+          <li>حذف بياناتك عند انتهاء الغرض من جمعها أو بناءً على طلبك</li>
+        </ul>
+        <p>
+          رغم جهودنا، لا يمكن ضمان الأمان الكامل لأي نظام عبر الإنترنت. في حالة أي اختراق، سنتخذ الإجراءات اللازمة وسنُخطرك في أقرب وقت ممكن.
+        </p>
+      </div>
+
+      <div class="privacy-section" id="cookies">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">🍪</div>
+          <h2>ملفات الارتباط (Cookies)</h2>
+        </div>
+        <p>
+          قد يستخدم موقعنا ملفات ارتباط محدودة لتحسين تجربة التصفح. هذه الملفات لا تحتوي على معلومات شخصية محددة.
+        </p>
+        <ul class="privacy-list">
+          <li><strong>ملفات ضرورية:</strong> لتشغيل الموقع بشكل صحيح (لا يمكن تعطيلها)</li>
+          <li><strong>ملفات التحليل:</strong> لفهم كيفية استخدام الزوار للموقع (مجهولة الهوية)</li>
+        </ul>
+        <p>يمكنك التحكم في ملفات الارتباط من خلال إعدادات متصفحك. تعطيل بعض الملفات قد يؤثر على بعض وظائف الموقع.</p>
+      </div>
+
+      <div class="privacy-section" id="rights">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">⚖️</div>
+          <h2>حقوقك</h2>
+        </div>
+        <p>وفقاً لنظام حماية البيانات الشخصية، تتمتع بالحقوق التالية:</p>
+        <ul class="privacy-list">
+          <li><strong>حق الاطلاع:</strong> طلب نسخة من البيانات الشخصية التي نحتفظ بها عنك</li>
+          <li><strong>حق التصحيح:</strong> طلب تصحيح أي بيانات غير دقيقة أو ناقصة</li>
+          <li><strong>حق الحذف:</strong> طلب حذف بياناتك ("الحق في النسيان") في الحالات المناسبة</li>
+          <li><strong>حق الاعتراض:</strong> الاعتراض على معالجة بياناتك لأغراض معينة</li>
+          <li><strong>حق سحب الموافقة:</strong> سحب موافقتك في أي وقت دون التأثير على المعالجة السابقة</li>
+          <li><strong>حق تقييد المعالجة:</strong> طلب تقييد استخدام بياناتك في ظروف معينة</li>
+        </ul>
+        <div class="highlight-box">
+          لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر <strong>0559133356</strong> وسنرد على طلبك خلال <strong>7 أيام عمل</strong>.
+        </div>
+      </div>
+
+      <div class="privacy-section" id="contact">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">📞</div>
+          <h2>التواصل بشأن الخصوصية</h2>
+        </div>
+        <p>
+          إذا كان لديك أي استفسار أو شكوى بشأن ممارسات الخصوصية لدينا، أو ترغب في ممارسة أي من حقوقك، يرجى التواصل معنا:
+        </p>
+        <ul class="privacy-list">
+          <li><strong>الهاتف / واتساب:</strong> 0559133356</li>
+          <li><strong>الموقع:</strong> الرياض، المملكة العربية السعودية</li>
+          <li><strong>ساعات العمل:</strong> السبت – الخميس من 7 صباحاً حتى 10 مساءً</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section" id="changes">
+        <div class="privacy-section-header">
+          <div class="privacy-section-icon">🔄</div>
+          <h2>التعديلات على هذه السياسة</h2>
+        </div>
+        <p>
+          نحتفظ بالحق في تحديث هذه السياسة من وقت لآخر لتعكس التغييرات في ممارساتنا أو المتطلبات القانونية. ستُشير تاريخ "آخر تحديث" في أعلى الصفحة إلى التاريخ الذي جرى فيه آخر تعديل.
+        </p>
+        <p>
+          في حال إجراء تغييرات جوهرية، سنبذل جهوداً معقولة لإخطارك. استمرارك في استخدام خدماتنا بعد التغييرات يُعدّ قبولاً للسياسة المعدّلة.
+        </p>
+        <div class="highlight-box">
+          <strong>تاريخ السريان:</strong> يناير 2025 &nbsp;|&nbsp; <strong>آخر مراجعة:</strong> يناير 2025
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 الدرع الذهبي للمقاولات العامة — جميع الحقوق محفوظة</p>
+      <p>
+        <a href="index.html">الرئيسية</a> &nbsp;|&nbsp;
+        <a href="services.html">الخدمات</a> &nbsp;|&nbsp;
+        <a href="privacy.html">سياسة الخصوصية</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="float-buttons">
+    <a href="https://wa.me/966559133356" target="_blank" class="float-btn float-whatsapp" data-label="تواصل واتساب">💬</a>
+    <a href="tel:0559133356" class="float-btn float-call" data-label="اتصل الآن">📞</a>
+  </div>
+
+</body>
+</html>

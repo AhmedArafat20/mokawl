@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الدرع الذهبي للمقاولات | الرياض</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9922A;
+      --gold-light: #F0B84A;
+      --gold-dark: #9A6E1A;
+      --navy: #0A1628;
+      --navy-mid: #112240;
+      --navy-light: #1E3A5F;
+      --white: #F8F4EE;
+      --gray: #8A9BB0;
+      --text: #E8DCC8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      transition: all 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(10,22,40,0.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    .nav-logo {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo .icon { font-size: 1.8rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; right: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--navy) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201,146,42,0.4);
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    /* ===== HERO ===== */
+    #home {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,146,42,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(30,58,95,0.6) 0%, transparent 70%),
+        linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 50%, #0D1F3C 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,146,42,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,146,42,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 8% 80px;
+      max-width: 750px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,146,42,0.15);
+      border: 1px solid rgba(201,146,42,0.4);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .hero-title {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--navy);
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(201,146,42,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201,146,42,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-light);
+      padding: 14px 32px;
+      border: 2px solid rgba(201,146,42,0.5);
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(201,146,42,0.1);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(17,34,64,0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(201,146,42,0.2);
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 5%;
+      z-index: 2;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 90px 8%; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(201,146,42,0.12);
+      border: 1px solid rgba(201,146,42,0.3);
+      color: var(--gold);
+      padding: 5px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .section-title span {
+      color: var(--gold-light);
+    }
+
+    .section-desc {
+      color: var(--gray);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      background: var(--navy-mid);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card-main {
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      border: 1px solid rgba(201,146,42,0.25);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card-main::before {
+      content: '';
+      position: absolute;
+      top: -50px; left: -50px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,146,42,0.15), transparent);
+      border-radius: 50%;
+    }
+
+    .about-icon-big {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-card-main h3 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .about-card-main p {
+      color: var(--gray);
+      line-height: 1.9;
+      font-size: 0.95rem;
+    }
+
+    .about-features {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-feature-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(201,146,42,0.15);
+      border: 1px solid rgba(201,146,42,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .about-feature-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .about-feature-text p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ===== SERVICES OVERVIEW ===== */
+    #services-home {
+      background: var(--navy);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,146,42,0.15);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 100px; height: 100px;
+      background: radial-gradient(circle, rgba(201,146,42,0.08), transparent);
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(201,146,42,0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(201,146,42,0.1);
+    }
+
+    .service-card:hover::before {
+      width: 200px; height: 200px;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .service-card .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .service-card .service-link:hover { gap: 10px; }
+
+    /* ===== WHY US ===== */
+    #why-us {
+      background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy) 100%);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,146,42,0.1);
+      border-radius: 12px;
+      padding: 1.8rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .why-card:hover {
+      background: rgba(201,146,42,0.06);
+      border-color: rgba(201,146,42,0.3);
+      transform: translateY(-4px);
+    }
+
+    .why-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .why-card h3 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    /* ===== AREAS ===== */
+    #areas {
+      background: var(--navy-mid);
+    }
+
+    .areas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .area-chip {
+      background: rgba(201,146,42,0.1);
+      border: 1px solid rgba(201,146,42,0.25);
+      color: var(--text);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .area-chip:hover {
+      background: rgba(201,146,42,0.2);
+      border-color: var(--gold);
+      color: var(--gold-light);
+      transform: scale(1.05);
+    }
+
+    /* ===== CTA SECTION ===== */
+    #cta {
+      background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%);
+      text-align: center;
+      border-top: 1px solid rgba(201,146,42,0.15);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+    }
+
+    .cta-title {
+      font-family: 'Tajawal', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-title span { color: var(--gold-light); }
+
+    .cta-desc {
+      color: var(--gray);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #128C7E, #25D366);
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+    }
+
+    .btn-call {
+      background: transparent;
+      color: var(--text);
+      padding: 14px 32px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-call:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-3px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #060F1E;
+      padding: 60px 8% 30px;
+      border-top: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo-text {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+
+    .footer-contact {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-contact a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--gold-light); }
+
+    .footer-col h4 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col ul a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--gray);
+      font-size: 0.82rem;
+    }
+
+    .footer-bottom a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .float-buttons {
+      position: fixed;
+      bottom: 28px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .float-btn::before {
+      content: attr(data-label);
+      position: absolute;
+      right: 64px;
+      background: rgba(10,22,40,0.95);
+      border: 1px solid rgba(201,146,42,0.3);
+      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 5px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: all 0.2s;
+    }
+
+    .float-btn:hover::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .float-whatsapp {
+      background: linear-gradient(135deg, #128C7E, #25D366);
+      color: white;
+    }
+
+    .float-call {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--navy);
+    }
+
+    /* Pulse animation */
+    .float-whatsapp::after, .float-call::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      animation: pulse 2.5s ease-out infinite;
+    }
+
+    .float-whatsapp::after { border: 2px solid #25D366; }
+    .float-call::after { border: 2px solid var(--gold); }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 60px 5%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats-bar { flex-wrap: wrap; gap: 1rem; }
+      .hero-content { padding-top: 110px; padding-bottom: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="icon">🛡️</span>
+      <span>الدرع الذهبي للمقاولات</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="services.html">خدماتنا</a></li>
+      <li><a href="#areas">مناطق العمل</a></li>
+      <li><a href="services.html#contact" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">📍 الرياض — المملكة العربية السعودية</div>
+      <h1 class="hero-title">
+        خبراء العزل والتشطيبات<br>
+        <span class="highlight">المقاولات العامة</span>
+      </h1>
+      <p class="hero-subtitle">
+        نقدم أعلى مستويات الجودة في العزل المائي والحراري، فوم البولي يوريثان، البولي يوريا،
+        تشطيبات الخزانات والمسابح والأسطح والبدرومات. حلول متكاملة بضمان الجودة.
+      </p>
+      <div class="hero-btns">
+        <a href="tel:0559133356" class="btn-primary">📞 اتصل بنا الآن</a>
+        <a href="services.html" class="btn-outline">🔧 خدماتنا</a>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">+500</div>
+        <div class="stat-label">مشروع منجز</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+15</div>
+        <div class="stat-label">سنة خبرة</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">ضمان الجودة</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">دعم فني</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header fade-up">
+      <div class="section-tag">من نحن</div>
+      <h2 class="section-title">رواد في مجال <span>العزل والمقاولات</span></h2>
+      <p class="section-desc">شركة متخصصة في تقديم حلول شاملة للعزل والبناء والترميم في الرياض والمنطقة الوسطى</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual fade-up">
+        <div class="about-card-main">
+          <div class="about-icon-big">🏗️</div>
+          <h3>الدرع الذهبي للمقاولات العامة</h3>
+          <p>
+            شركة متخصصة في الرياض تقدم خدمات متكاملة في مجال العزل المائي والحراري، وتطبيق مواد البولي يوريثان والبولي يوريا، وأعمال التشطيب والترميم. نعمل مع المشاريع السكنية والتجارية والصناعية بأعلى معايير الجودة.
+          </p>
+        </div>
+      </div>
+      <div class="about-features fade-up">
+        <div class="about-feature">
+          <div class="about-feature-icon">🏆</div>
+          <div class="about-feature-text">
+            <h4>خبرة واسعة</h4>
+            <p>أكثر من 15 عاماً من العمل في مجال العزل والمقاولات في الرياض</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">✅</div>
+          <div class="about-feature-text">
+            <h4>مواد معتمدة</h4>
+            <p>نستخدم أفضل مواد العزل المعتمدة عالمياً من أشهر الموردين</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">👷</div>
+          <div class="about-feature-text">
+            <h4>فريق متخصص</h4>
+            <p>كوادر مدربة ومعتمدة على تطبيق جميع أنواع العزل والتشطيب</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🛡️</div>
+          <div class="about-feature-text">
+            <h4>ضمان شامل</h4>
+            <p>نضمن جودة أعمالنا ونقدم خدمة ما بعد التنفيذ لراحة عملائنا</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">⚡</div>
+          <div class="about-feature-text">
+            <h4>إنجاز سريع</h4>
+            <p>نلتزم بالمواعيد المحددة دون المساس بمعايير الجودة والاتقان</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section id="services-home">
+    <div class="section-header fade-up">
+      <div class="section-tag">خدماتنا</div>
+      <h2 class="section-title">حلول متكاملة <span>لكل احتياجاتك</span></h2>
+      <p class="section-desc">نقدم مجموعة شاملة من الخدمات في مجال العزل والمقاولات والتشطيبات</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">💧</div>
+        <h3>العزل المائي</h3>
+        <p>حماية شاملة ضد التسربات المائية للأسطح، الخزانات، المسابح، البدرومات، والحمامات</p>
+        <a href="services.html" class="service-link">اعرف أكثر ◄</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🌡️</div>
+        <h3>العزل الحراري</h3>
+        <p>حلول عزل حراري فعّالة لتخفيض استهلاك الطاقة وتحسين بيئة المبنى</p>
+        <a href="services.html" class="service-link">اعرف أكثر ◄</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🫧</div>
+        <h3>فوم البولي يوريثان</h3>
+        <p>تطبيق فوم البولي يوريثان عالي الجودة للأسطح والجدران والمستودعات والثلاجات</p>
+        <a href="services.html" class="service-link">اعرف أكثر ◄</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔶</div>
+        <h3>البولي يوريا</h3>
+        <p>طلاء البولي يوريا للحماية الفائقة من التآكل والمياه للأسطح والخزانات والأرضيات</p>
+        <a href="services.html" class="service-link">اعرف أكثر ◄</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🏊</div>
+        <h3>خزانات ومسابح</h3>
+        <p>عزل وتشطيب الخزانات والمسابح وأحواض المياه بمواد مقاومة وطويلة الأمد</p>
+        <a href="services.html" class="service-link">اعرف أكثر ◄</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔨</div>
+        <h3>ترميمات وتشطيبات</h3>
+        <p>ترميم المباني وتشطيب الحمامات والمطابخ والبدرومات والأسطح بأعلى مستوى</p>
+        <a href="services.html" class="service-link">اعرف أكثر ◄</a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="services.html" class="btn-primary">عرض جميع الخدمات ◄</a>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us">
+    <div class="section-header fade-up">
+      <div class="section-tag">لماذا نحن</div>
+      <h2 class="section-title">ميّزنا يجعلنا <span>الخيار الأول</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">📋</div>
+        <h3>معاينة مجانية</h3>
+        <p>نقدم معاينة مجانية لموقعك وتقييماً دقيقاً للمشكلة قبل البدء</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">💰</div>
+        <h3>أسعار تنافسية</h3>
+        <p>أسعار منافسة في السوق مع الحفاظ على أعلى معايير الجودة</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🔍</div>
+        <h3>تشخيص دقيق</h3>
+        <p>فريق متخصص في تشخيص مشاكل التسرب والعزل بدقة عالية</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">📅</div>
+        <h3>التزام بالمواعيد</h3>
+        <p>نلتزم بالجداول الزمنية المتفق عليها لإتمام المشاريع في وقتها</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🌟</div>
+        <h3>جودة مضمونة</h3>
+        <p>ضمان على جميع أعمالنا وخدمة ما بعد البيع لراحتك التامة</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">📞</div>
+        <h3>دعم مستمر</h3>
+        <p>متاحون على مدار الساعة للرد على استفساراتك وحل أي مشكلة</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="areas">
+    <div class="section-header fade-up">
+      <div class="section-tag">مناطق العمل</div>
+      <h2 class="section-title">نخدمك في <span>كل أرجاء الرياض</span></h2>
+      <p class="section-desc">نغطي جميع أحياء ومحافظات منطقة الرياض</p>
+    </div>
+    <div class="areas-grid fade-up">
+      <div class="area-chip">📍 شمال الرياض</div>
+      <div class="area-chip">📍 جنوب الرياض</div>
+      <div class="area-chip">📍 شرق الرياض</div>
+      <div class="area-chip">📍 غرب الرياض</div>
+      <div class="area-chip">📍 وسط الرياض</div>
+      <div class="area-chip">📍 العليا</div>
+      <div class="area-chip">📍 المعذر</div>
+      <div class="area-chip">📍 الملقا</div>
+      <div class="area-chip">📍 النرجس</div>
+      <div class="area-chip">📍 الخليج</div>
+      <div class="area-chip">📍 السليمانية</div>
+      <div class="area-chip">📍 المربع</div>
+      <div class="area-chip">📍 الدرعية</div>
+      <div class="area-chip">📍 الخرج</div>
+      <div class="area-chip">📍 الحرس الوطني</div>
+      <div class="area-chip">📍 البدية</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <h2 class="cta-title fade-up">هل تعاني من مشاكل <span>تسرب أو عزل؟</span></h2>
+    <p class="cta-desc fade-up">تواصل معنا الآن واحصل على معاينة مجانية وحل فوري لمشكلتك</p>
+    <div class="cta-btns fade-up">
+      <a href="https://wa.me/966559133356" target="_blank" class="btn-whatsapp">
+        💬 واتساب
+      </a>
+      <a href="tel:0559133356" class="btn-call">
+        📞 0559133356
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">🛡️ الدرع الذهبي للمقاولات</div>
+        <p>شركة متخصصة في العزل المائي والحراري والمقاولات العامة في الرياض. نقدم حلول متكاملة للأفراد والشركات بأعلى معايير الجودة.</p>
+        <div class="footer-contact">
+          <a href="tel:0559133356">📞 0559133356</a>
+          <a href="https://wa.me/966559133356" target="_blank">💬 واتساب</a>
+          <a href="#">📍 الرياض، المملكة العربية السعودية</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="services.html">خدماتنا</a></li>
+          <li><a href="#areas">مناطق العمل</a></li>
+          <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>خدماتنا</h4>
+        <ul>
+          <li><a href="services.html">العزل المائي</a></li>
+          <li><a href="services.html">العزل الحراري</a></li>
+          <li><a href="services.html">البولي يوريثان</a></li>
+          <li><a href="services.html">البولي يوريا</a></li>
+          <li><a href="services.html">ترميمات وتشطيبات</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 الدرع الذهبي للمقاولات العامة — جميع الحقوق محفوظة</p>
+      <p><a href="privacy.html">سياسة الخصوصية</a></p>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="float-buttons">
+    <a href="https://wa.me/966559133356" target="_blank" class="float-btn float-whatsapp" data-label="تواصل واتساب">💬</a>
+    <a href="tel:0559133356" class="float-btn float-call" data-label="اتصل الآن">📞</a>
+  </div>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
